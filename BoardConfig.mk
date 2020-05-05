@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/realme/RMX1851
+SHRP_PATH := device/realme/RMX1851
 
 # Architecture
 TARGET_ARCH := arm64
@@ -51,8 +51,8 @@ BOARD_RAMDISK_OFFSET     := 0x01000000
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+TARGET_PREBUILT_KERNEL := $(SHRP_PATH)/prebuilt/Image.gz-dtb
+BOARD_PREBUILT_DTBOIMAGE := $(SHRP_PATH)/prebuilt/dtbo.img
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_BOOTIMG_HEADER_VERSION := 1
 #BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
@@ -121,3 +121,31 @@ TW_EXCLUDE_TWRPAPP := true
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
 
+# SHRP FLAGS
+
+# Maintainer name
+SHRP_MAINTAINER := iamsj7
+
+# Device codename
+SHRP_DEVICE_CODE := RMX1851
+
+# put this 0 if device has no EDL mode
+SHRP_EDL_MODE := 1
+
+# SHRP Mount Points
+SHRP_EXTERNAL := /sdcard1
+SHRP_INTERNAL := /sdcard
+SHRP_OTG := /usb_otg
+
+# Put 0 to disable flashlight
+SHRP_FLASH := 1
+
+# Max Brightness of LED (Optional)
+SHRP_FLASH_MAX_BRIGHTNESS := 200
+
+# Check your device's recovery path, dont use blindly
+SHRP_REC := /dev/block/bootdevice/by-name/recovery
+
+# SHRP Padding Flag (Only for rounded corner devices.)
+SHRP_STATUSBAR_RIGHT_PADDING := 10
+SHRP_STATUSBAR_LEFT_PADDING := 10
